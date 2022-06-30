@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="simp.css">
+    <link rel="icon" href="Calcicon.png" sizes="16*16">
+</head>
+<body>
+    <header><i>Simple Calculator</i></header>
+
+    <table border="3px">
+        <tr id="arow">
+            <td id="res"></td>
+        </tr>
+        <tr>
+            <td>
+                <button id="9" value="9" onclick="Clickfunc('9')">9</button>
+                <button id="8" value="8" onclick="Clickfunc('8')">8</button>
+                <button id="7" value="7" onclick="Clickfunc('7')">7</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="6" value="6" onclick="Clickfunc('6')">6</button>
+                <button id="5" value="5" onclick="Clickfunc('5')">5</button>
+                <button id="4" value="4" onclick="Clickfunc('4')">4</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="3" value="3" onclick="Clickfunc('3')">3</button>
+                <button id="2" value="2" onclick="Clickfunc('2')">2</button>
+                <button id="1" value="1" onclick="Clickfunc('1')">1</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="add" value="+" onclick="Clickfunc('add')">+</button>
+                <button id="0" value="0" onclick="Clickfunc('0')">0</button>
+                <button id="sub" value="-" onclick="Clickfunc('sub')">-</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="mul" value="*" onclick="Clickfunc('mul')">&times</button>
+                <button id="div" value="/" onclick="Clickfunc('div')">&divide;</button>
+                <button id="pow" value="**" onclick="Clickfunc('pow')">x<sup>y</sup></button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="opn" value="(" onclick="Clickfunc('opn')">(</button>
+                <button id="cls" value=")" onclick="Clickfunc('cls')">)</button>
+                <button id="decimal" value="." onclick="Clickfunc('decimal')">.</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button value="=" id="clr" onclick="onclear()">clear</button>
+
+                <button value="=" id="eql" onclick="onequal()">=</button>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+
+        var res="";
+
+        function Clickfunc(x)
+        {
+            if(x in ['0','1','2','3','4','5','6','7','8','9'])
+            {
+                document.getElementById("res").innerHTML += document.getElementById(x).value
+                res += document.getElementById(x).value
+            }
+
+            else if(x==='add' || x==='sub' || x==='opn' || x==='cls' || x==='decimal')
+            {
+                document.getElementById("res").innerHTML += document.getElementById(x).value
+                res += document.getElementById(x).value
+            }
+
+            else if(x==='mul')
+            {
+                document.getElementById("res").innerHTML += "&times"
+                res += document.getElementById(x).value
+            }
+
+            else if(x==='div')
+            {
+                document.getElementById("res").innerHTML += "&divide"
+                res += document.getElementById(x).value
+            }
+
+            else if(x==='pow')
+            {
+                document.getElementById("res").innerHTML += "pow"
+                res += document.getElementById(x).value
+            }
+
+        }
+        
+        function onequal()
+        {
+            document.getElementById("res").innerHTML = eval(res)
+            res = eval(res)
+        }
+
+        function onclear()
+        {
+            document.getElementById("res").innerHTML = ''
+            res=''
+        }
+
+    </script>
+    
+</body>
+</html>
